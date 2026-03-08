@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../context'; 
+import { useAuth } from '../context';
 import { userService } from '../services/api';
 import type { User } from '../types';
+import logo from '../assets/wonga-logo.svg';
 
 export const Dashboard: React.FC = () => {
     const { user, logout } = useAuth();
@@ -37,12 +38,20 @@ export const Dashboard: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex items-center">
+                            <img
+                                src={logo}
+                                alt="Logo"
+                                className="h-8 w-auto mr-3"
+                            />
                             <h1 className="text-xl font-semibold text-gray-900">Dashboard</h1>
                         </div>
                         <div className="flex items-center">
+                            <span className="text-sm text-gray-700 mr-4">
+                                Welcome, {user?.firstName}!
+                            </span>
                             <button
                                 onClick={logout}
-                                className="ml-4 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             >
                                 Logout
                             </button>
