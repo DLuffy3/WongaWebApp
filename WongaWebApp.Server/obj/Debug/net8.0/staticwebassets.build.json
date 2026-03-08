@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "AAgO9B8jKP3OArsMdtORd7u/X+6+gIUbJ2kBAnhMpeE=",
+  "Source": "WongaWebApp.Server",
+  "BasePath": "_content/WongaWebApp.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\loyis\\WongaWebApp\\WongaWebApp\\wongawebapp.client\\wongawebapp.client.esproj",
+      "Version": 2,
+      "Source": "wongawebapp.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

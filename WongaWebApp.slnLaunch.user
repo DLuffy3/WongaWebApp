@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "wongawebapp.client\\wongawebapp.client.esproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "WongaWebApp.Server\\WongaWebApp.Server.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
