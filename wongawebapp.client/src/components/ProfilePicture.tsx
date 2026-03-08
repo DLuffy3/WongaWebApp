@@ -31,7 +31,6 @@ export const ProfilePicture: React.FC<Props> = ({
         const file = e.target.files?.[0];
         if (!file) return;
 
-        // Validation
         if (!file.type.startsWith('image/')) {
             setError('Please select an image file');
             return;
@@ -76,7 +75,6 @@ export const ProfilePicture: React.FC<Props> = ({
     return (
         <div className="flex flex-col items-center">
             <div className="relative w-32 h-32">
-                {/* Image or Initials */}
                 <div className="w-full h-full rounded-full overflow-hidden bg-indigo-100 border-4 border-white shadow-lg">
                     {imageUrl ? (
                         <img
@@ -93,7 +91,6 @@ export const ProfilePicture: React.FC<Props> = ({
                     )}
                 </div>
 
-                {/* Upload/Remove Buttons */}
                 {!isUploading && (
                     <div className="absolute bottom-0 right-0 flex space-x-1">
                         <button
@@ -124,7 +121,6 @@ export const ProfilePicture: React.FC<Props> = ({
                     </div>
                 )}
 
-                {/* Loading Spinner */}
                 {isUploading && (
                     <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-full">
                         <div className="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent"></div>

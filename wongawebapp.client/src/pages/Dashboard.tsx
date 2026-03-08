@@ -82,7 +82,6 @@ export const Dashboard: React.FC = () => {
 
                 <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                     <div className="px-4 py-6 sm:px-0">
-                        {/* Profile Picture Section */}
                         <div className="mb-8 flex justify-center">
                             <ProfilePicture
                                 currentUrl={displayUser?.profilePictureUrl}
@@ -91,8 +90,6 @@ export const Dashboard: React.FC = () => {
                                 onRemove={handlePictureRemove}
                             />
                         </div>
-
-                        {/* User Info Card */}
                         <div className="bg-white overflow-hidden shadow rounded-lg">
                             <div className="px-4 py-5 sm:px-6 bg-indigo-50">
                                 <h3 className="text-lg font-medium text-gray-900">User Information</h3>
