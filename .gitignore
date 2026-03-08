@@ -1,0 +1,312 @@
+## Comprehensive .gitignore for .NET + React Project
+## Created for Wonga Assessment
+
+## Visual Studio
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+## .NET Core specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## ASP.NET Core
+**/wwwroot/dist/
+**/wwwroot/css/dist/
+**/wwwroot/js/dist/
+
+## Entity Framework
+/Migrations/*.Designer.cs
+/Migrations/*.edmx
+/Migrations/*.resx
+
+## Node.js / React
+**/node_modules/
+**/npm-debug.log
+**/yarn-debug.log
+**/yarn-error.log
+**/.pnpm-debug.log
+**/package-lock.json
+**/yarn.lock
+
+## React build
+**/build/
+**/dist/
+**/.cache/
+
+## Environment files
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+**/.env.*.local
+
+## Testing
+**/coverage/
+**/.nyc_output/
+**/test-results/
+**/junit.xml
+
+## Logs and databases
+**/*.log
+**/*.sqlite
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.pid
+**/*.seed
+**/*.pid.lock
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+## Mono auto generated files
+mono_crash.*
+
+## Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## Visual Studio cache files
+*.csproj.user
+*.vcxproj.filters
+*.vcxproj.user
+*.vcxproj
+*.fsproj
+*.fsproj.user
+*.dbmdl
+*.dbproj.schemaview
+*.pfx
+*.publishsettings
+**/.settings/
+
+## Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+## OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+## Docker
+**/.docker/
+**/docker-compose.override.yml
+**/Dockerfile.*.tmp
+
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## VS Code settings (optional)
+**/.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+## Secrets
+**/appsettings.Secrets.json
+**/secrets.json
+**/appsettings.Development.json (if you want to exclude dev settings)
+
+## Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.*~
+~*.*
+
+## NuGet Packages
+*.nupkg
+packages/
+!**/packages/build/
+
+## Test Results
+TestResults/
+*.trx
+
+## User Secrets
+**/secrets.json
+**/appsettings.Secrets.json
+
+## Azure Functions
+local.settings.json
+
+## Publish output
+**/publish/
+**/PublishScripts/
+
+## SSL Certificates (if any)
+**/*.pfx
+**/*.pem
+**/*.crt
+**/*.key
+!**/https/*.pfx (if you want to keep specific certs)
+
+## Backup files
+*.bak
+*.orig
+*.old
+
+## SQL Server files
+**/App_Data/*.mdf
+**/App_Data/*.ldf
+
+## Coverage files
+*.coverage
+*.coveragexml
+
+## Documentation
+**/doc/
+**/docs/
+**/Documentation/
+
+## Temp folders
+**/temp/
+**/tmp/
+**/logs/
+**/log/
+
+## Specific to your project
+**/wongawebapp.client/.vite/
+**/wongawebapp.client/.vercel/
+**/wongawebapp.client/.netlify/
+
+## Visual Studio temporary files, cache files
+*.csproj.user
+*.cache
+*.sln.ide
+*.pidb
+*.svclog
+*.scc
+
+## Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+## Guidance Automation Toolkit
+*.gpState
+
+## ReSharper
+_ReSharper*/
+*.ReSharper
+*.ReSharper.user
+*.DotSettings.user
+
+## JustCode
+.JustCode
+
+## TeamCity
+_TeamCity*
+
+## DotCover
+*.dotCover
+*.dotCover.user
+
+## NCrunch
+*.ncrunch*
+_NCrunch_*
+.*crunch*.local.xml
+
+## Installshield output files
+*.cab
+*.msi
+*.msm
+*.msp
+*.ixx
+
+## Windows Azure Build Output
+csx
+*.build.csdef
+
+## Windows Store app package directories and files
+AppPackages/
+BundleArtifacts/
+*.appx
+*.appxbundle
+*.appxupload
+
+## Others
+*.Cache
+ClientBin/
+[Ss]tyle[Cc]op.*
+~$*
+*~
+*.dbmdl
+*.dbproj.schemaview
+*.publishsettings
+orleans.codegen.cs
+
+## ASP.NET Core
+**/wwwroot/dist/
+**/spa.proxy.json
