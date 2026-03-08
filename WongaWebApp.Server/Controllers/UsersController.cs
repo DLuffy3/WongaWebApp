@@ -4,7 +4,7 @@ using System.Security.Claims;
 using Wonga.Server.Data;
 using Wonga.Server.Models;
 
-namespace Wonga.Api.Controllers
+namespace WongaWebApp.Server.Controllers
 {
     [Authorize]
     [ApiController]
@@ -18,24 +18,22 @@ namespace Wonga.Api.Controllers
             _context = context;
         }
 
-        [HttpGet("users")]
+        [HttpGet]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
-
             var user = await _context.Users.FindAsync(userId);
 
             if (user == null)
-            {
                 return NotFound();
-            }
 
             return Ok(new UserDto
             {
                 Id = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                Email = user.Email
+                Email = user.Email,
+                ProfilePictureUrl = user.ProfilePictureUrl
             });
         }
     }
