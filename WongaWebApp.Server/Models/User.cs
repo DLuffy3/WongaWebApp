@@ -10,5 +10,6 @@ namespace Wonga.Server.Models
         public string Email { get; set; }
         public string PasswordHash { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
+        public string? ProfilePictureUrl { get; set; }
     }
 }

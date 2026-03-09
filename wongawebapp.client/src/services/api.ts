@@ -11,7 +11,7 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }
@@ -27,19 +27,19 @@ export const authService = {
     async login(data: LoginRequest): Promise<LoginResponse> {
         const response = await api.post<LoginResponse>('/auth/login', data);
         if (response.data.token) {
-            localStorage.setItem('token', response.data.token);
-            localStorage.setItem('user', JSON.stringify(response.data.user));
+            sessionStorage.setItem('token', response.data.token);
+            sessionStorage.setItem('user', JSON.stringify(response.data.user));
         }
         return response.data;
     },
 
     logout() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('user');
     },
 
     getCurrentUser(): User | null {
-        const user = localStorage.getItem('user');
+        const user = sessionStorage.getItem('user');
         return user ? JSON.parse(user) : null;
     },
 };
