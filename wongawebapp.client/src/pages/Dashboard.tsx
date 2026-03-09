@@ -29,18 +29,17 @@ export const Dashboard: React.FC = () => {
     const handlePictureUpdate = (url: string) => {
         setUserDetails(prev => prev ? { ...prev, profilePictureUrl: url } : null);
 
-        // Update localStorage
-        const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
+        const storedUser = JSON.parse(sessionStorage.getItem('user') || '{}');
         storedUser.profilePictureUrl = url;
-        localStorage.setItem('user', JSON.stringify(storedUser));
+        sessionStorage.setItem('user', JSON.stringify(storedUser));
     };
 
     const handlePictureRemove = () => {
         setUserDetails(prev => prev ? { ...prev, profilePictureUrl: null } : null);
 
-        const storedUser = JSON.parse(localStorage.getItem('user') || '{}');
+        const storedUser = JSON.parse(sessionStorage.getItem('user') || '{}');
         delete storedUser.profilePictureUrl;
-        localStorage.setItem('user', JSON.stringify(storedUser));
+        sessionStorage.setItem('user', JSON.stringify(storedUser));
     };
 
     if (loading) {

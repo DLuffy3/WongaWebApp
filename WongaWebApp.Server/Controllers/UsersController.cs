@@ -18,7 +18,7 @@ namespace WongaWebApp.Server.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet("users")]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
