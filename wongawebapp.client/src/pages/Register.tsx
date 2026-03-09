@@ -18,7 +18,8 @@ export const Register: React.FC = () => {
         confirmPassword: '',
     });
     const [error, setError] = useState('');
-
+    const [successMessage, setSuccessMessage] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
@@ -29,20 +30,27 @@ export const Register: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
+        setSuccessMessage('');
+        setIsSubmitting(true);
 
         if (formData.password !== formData.confirmPassword) {
             setError('Passwords do not match');
+            setIsSubmitting(false);
             return;
         }
 
         if (formData.password.length < 6) {
             setError('Password must be at least 6 characters');
+            setIsSubmitting(false);
             return;
         }
 
         try {
             await register(formData.firstName, formData.lastName, formData.email, formData.password);
-            navigate('/dashboard');
+            setSuccessMessage('Account created successfully! Redirecting to login...');
+            setTimeout(() => {
+                navigate('/login');
+            }, 2000);
         } catch (err: unknown) {
             if (err && typeof err === 'object' && 'response' in err) {
                 const error = err as { response?: { data?: string } };
@@ -144,13 +152,17 @@ export const Register: React.FC = () => {
                                     {error}
                                 </div>
                             )}
-
+                            {successMessage && (
+                                <div className="bg-green-50 text-green-600 text-sm text-center p-3 rounded-lg">
+                                    {successMessage}
+                                </div>
+                            )}
                             <button
                                 type="submit"
-                                disabled={authLoading}
+                                disabled={authLoading || isSubmitting}
                                 className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                {authLoading ? (
+                                {authLoading || isSubmitting ? (
                                     <span className="flex items-center justify-center">
                                         <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

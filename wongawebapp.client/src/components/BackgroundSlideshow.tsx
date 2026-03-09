@@ -14,7 +14,6 @@ export const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({
     const [activeIndex, setActiveIndex] = useState(0);
 
     useEffect(() => {
-        // Preload all images
         images.forEach(src => {
             const img = new Image();
             img.src = src;
@@ -31,7 +30,6 @@ export const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({
 
     return (
         <div className="relative min-h-screen overflow-hidden">
-            {/* Background Images Container */}
             <div className="absolute inset-0">
                 {images.map((image, index) => (
                     <div
@@ -45,11 +43,9 @@ export const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({
                     />
                 ))}
 
-                {/* Dark overlay for better form visibility */}
                 <div className="absolute inset-0 bg-black bg-opacity-40" style={{ zIndex: 2 }} />
             </div>
 
-            {/* Content */}
             <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
                 {children}
             </div>
