@@ -47,9 +47,8 @@ export const ProfilePicture: React.FC<Props> = ({
         try {
             const url = await profileService.uploadPicture(file);
             onUpdate(url);
-        } catch (err) {
+        } catch {
             setError('Upload failed');
-            console.error(err);
         } finally {
             setIsUploading(false);
             if (fileInputRef.current) fileInputRef.current.value = '';
@@ -63,7 +62,7 @@ export const ProfilePicture: React.FC<Props> = ({
         try {
             await profileService.removePicture();
             onRemove();
-        } catch (err) {
+        } catch {
             setError('Remove failed');
         } finally {
             setIsUploading(false);
