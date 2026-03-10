@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: wonga_postgres
+    environment:
+      POSTGRES_DB: wongadb
+      POSTGRES_USER: wongauser
+      POSTGRES_PASSWORD: wongapass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - wonga_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wongauser"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./WongaWebApp.Server
+      dockerfile: Dockerfile
+    container_name: wonga_backend
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__DefaultConnection=Host=postgres;Database=wongadb;Username=wongauser;Password=wongapass
+      - Jwt__Key=your-super-secret-key-change-this
+    ports:
+      - "5000:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - wonga_network
+
+  frontend:
+    build:
+      context: ./wongawebapp.client
+      dockerfile: Dockerfile
+    container_name: wonga_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - wonga_network
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    container_name: wonga_tests
+    depends_on:
+      - postgres
+      - backend
+    networks:
+      - wonga_network
+    command: ["dotnet", "test", "WongaWebApp.IntegrationTests/WongaWebApp.IntegrationTests.csproj", "--no-restore", "--verbosity", "normal"]
+
+volumes:
+  postgres_data:
+
+networks:
+  wonga_network:
+    driver: bridge
