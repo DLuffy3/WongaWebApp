@@ -11,11 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write 
+      packages: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set lowercase repository owner
+        run: echo "OWNER_LC=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
@@ -45,16 +48,16 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }} 
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Push Backend
         uses: docker/build-push-action@v5
         with:
           context: ./WongaWebApp.Server
-          push: ${{ github.event_name != 'pull_request' }} 
+          push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            ghcr.io/${{ github.repository }}/backend:latest
-            ghcr.io/${{ github.repository }}/backend:${{ github.sha }}
+            ghcr.io/${{ env.OWNER_LC }}/wongawebapp/backend:latest
+            ghcr.io/${{ env.OWNER_LC }}/wongawebapp/backend:${{ github.sha }}
 
       - name: Build and Push Frontend
         uses: docker/build-push-action@v5
@@ -62,5 +65,5 @@ jobs:
           context: ./wongawebapp.client
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            ghcr.io/${{ github.repository }}/frontend:latest
-            ghcr.io/${{ github.repository }}/frontend:${{ github.sha }}
+            ghcr.io/${{ env.OWNER_LC }}/wongawebapp/frontend:latest
+            ghcr.io/${{ env.OWNER_LC }}/wongawebapp/frontend:${{ github.sha }}
