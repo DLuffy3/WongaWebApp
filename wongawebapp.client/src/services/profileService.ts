@@ -19,7 +19,7 @@ export const profileService = {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await api.post('/profile/picture', formData, {
+        const response = await api.post('/profile/uploadPicture', formData, {
             headers: { 'Content-Type': 'multipart/form-data' }
         });
 
@@ -27,6 +27,6 @@ export const profileService = {
     },
 
     async removePicture(): Promise<void> {
-        await api.delete('/profile/picture');
+        await api.delete('/profile/removePicture');
     }
 };
