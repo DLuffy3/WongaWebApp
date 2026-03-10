@@ -1,0 +1,12 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0
+WORKDIR /src
+
+COPY WongaWebApp.sln .
+COPY WongaWebApp.Server/*.csproj WongaWebApp.Server/
+COPY WongaWebApp.IntegrationTests/*.csproj WongaWebApp.IntegrationTests/
+
+RUN dotnet restore
+
+COPY . .
+
+ENTRYPOINT ["dotnet", "test", "WongaWebApp.IntegrationTests/WongaWebApp.IntegrationTests.csproj", "--no-restore", "--verbosity", "normal"]
