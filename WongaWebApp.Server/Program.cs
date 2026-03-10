@@ -61,10 +61,18 @@ using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-    dbContext.Database.Migrate();
+    if (dbContext.Database.IsRelational())
+    {
+        dbContext.Database.Migrate();
+    }
+    else
+    {
+        dbContext.Database.EnsureCreated();
+    }
 
     var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
-    logger.LogInformation("Database migration completed successfully!");
+    logger.LogInformation("Database initialization completed!");
 }
 
 app.Run();
+public partial class Program { }

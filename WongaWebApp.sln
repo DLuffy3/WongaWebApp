@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "wongawebapp.client", "wongawebapp.client\wongawebapp.client.esproj", "{E9B78E15-6B7A-A077-E43C-71B363D3991F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WongaWebApp.Server", "WongaWebApp.Server\WongaWebApp.Server.csproj", "{51292B69-439F-4DEA-8A96-A9E8CAB7FF29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WongaWebApp.IntegrationTests", "WongaWebApp.IntegrationTests\WongaWebApp.IntegrationTests.csproj", "{21B69A0F-F5BD-4548-8AAE-6275EB18E154}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{51292B69-439F-4DEA-8A96-A9E8CAB7FF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51292B69-439F-4DEA-8A96-A9E8CAB7FF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51292B69-439F-4DEA-8A96-A9E8CAB7FF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B69A0F-F5BD-4548-8AAE-6275EB18E154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B69A0F-F5BD-4548-8AAE-6275EB18E154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B69A0F-F5BD-4548-8AAE-6275EB18E154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B69A0F-F5BD-4548-8AAE-6275EB18E154}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

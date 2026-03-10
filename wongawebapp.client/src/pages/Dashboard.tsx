@@ -64,9 +64,6 @@ export const Dashboard: React.FC = () => {
                                 <h1 className="text-xl font-semibold text-gray-900">Dashboard</h1>
                             </div>
                             <div className="flex items-center">
-                                <span className="text-sm text-gray-700 mr-4">
-                                    Welcome, {displayUser?.firstName}!
-                                </span>
                                 <button
                                     onClick={logout}
                                     disabled={logoutLoading}

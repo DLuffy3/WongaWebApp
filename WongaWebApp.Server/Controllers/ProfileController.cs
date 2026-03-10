@@ -19,7 +19,7 @@ namespace WongaWebApp.Server.Controllers
             _env = env;
         }
 
-        [HttpPost("picture")]
+        [HttpPost("uploadPicture")]
         public async Task<IActionResult> UploadPicture(IFormFile file)
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
@@ -65,7 +65,7 @@ namespace WongaWebApp.Server.Controllers
             return Ok(new { url = user.ProfilePictureUrl });
         }
 
-        [HttpDelete("picture")]
+        [HttpDelete("removePicture")]
         public async Task<IActionResult> RemovePicture()
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
